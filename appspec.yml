@@ -4,7 +4,7 @@ files:
   - source: /
     destination: /var/www/hello_world
 hooks:
-  ApplicationStart:
-    - location: /var/www/hello_world/bin/start.sh
-      timeout: 300
-      runas: root
+#  ApplicationStart:
+#    - location: /var/www/hello_world/bin/start.sh
+#      timeout: 300
+#      runas: root
