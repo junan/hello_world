@@ -7,8 +7,10 @@ phases:
       ruby: 2.6
     commands:
       - echo Install postgres
+      - sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+      - wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
       - apt-get update
-      - apt -y install postgresql postgresql-server postgresql-devel postgresql-contrib postgresql-docs
+      - apt-get install postgresql-11
       - echo Installing Bundler...
       - gem install bundler
       - bundle install
