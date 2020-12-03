@@ -16,6 +16,8 @@ phases:
       - bundle install
   pre_build:
     commands:
+      - echo Initializing postgres
+      - pg_ctlcluster 11 main start
       - echo Preparing database to run tests...
       - RAILS_ENV=test bundle exec rails db:setup
       - RAILS_ENV=test bundle exec rails db:migrate
