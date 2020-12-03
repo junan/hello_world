@@ -7,6 +7,7 @@ phases:
       ruby: 2.6
     commands:
       - echo Install postgres
+      - apt-get update
       - apt -y install postgresql postgresql-server postgresql-devel postgresql-contrib postgresql-docs
       - echo Installing Bundler...
       - gem install bundler
