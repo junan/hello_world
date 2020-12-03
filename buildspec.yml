@@ -1,0 +1,20 @@
+# buildspec.yml
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      ruby: 2.6.5
+    commands:
+      - echo Installing Bundler...
+      - gem install bundler
+      - bundle install
+  pre_build:
+    commands:
+      - echo Preparing database to run tests...
+      - RAILS_ENV=test rails db:setup
+      - RAILS_ENV=test rails db:migrate
+  build:
+    commands:
+      - echo Running tests...
+      - bundle exec rspec
